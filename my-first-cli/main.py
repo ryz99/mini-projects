@@ -16,6 +16,7 @@ group.add_argument('-s', '--silent', action='store_true',
 args: Namespace = parser.parse_args()
 result: int = args.a ** args.b
 
+#conditional statement depending on arguments
 if args.silent:
     print("Silenced!")
 else:
