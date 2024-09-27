@@ -14,6 +14,11 @@
 <h1>My first view</h1>
 <a href="{% url 'task-creator' %}">Add Task</a>
 
+<form method="GET">
+    <input type="text" name="searchbar" value="{{ search_input }}">
+    <input type="submit" value="Search">
+</form>
+
 <table>
     <tr>
         <th>Item</th>
