@@ -60,6 +60,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     context_object_name = 'task'
     template_name = 'base/task.html'
 
+
 # Uses in-built template
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
