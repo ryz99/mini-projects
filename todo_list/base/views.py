@@ -60,7 +60,6 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     context_object_name = 'task'
     template_name = 'base/task.html'
 
-
 # Uses in-built template
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
@@ -70,6 +69,12 @@ class TaskCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['creator'] = context['tasks'].user
+        return context
+
 
 # Looks for _form
 class TaskUpdate(LoginRequiredMixin, UpdateView):

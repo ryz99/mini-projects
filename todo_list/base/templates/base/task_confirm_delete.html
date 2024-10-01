@@ -8,8 +8,12 @@
 <div class="card-body">
     <form method="POST">
         {% csrf_token %}
-        <p> Are you sure you want to delete "{{task}}"?</p>
-        <input class="button" type="submit" value="Delete"/>
+        {% if request.user == task.user %}
+            <p> Are you sure you want to delete "{{task}}"?</p>
+            <input class="button" type="submit" value="Delete"/>
+        {% else %}
+            <h3>This is not your task!</h3>
+        {% endif %}
     </form>
 <div>
 
